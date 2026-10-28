@@ -13,7 +13,7 @@ RUN groupadd -g 1001 ciuser && \
 COPY pip-requirements.txt .
 
 # Install Python packages
-RUN pip3 install -r pip-requirements.txt --break-system-packages --force-reinstall
+RUN pip3 install -r pip-requirements.txt --break-system-packages --force-reinstall --ignore-installed
 
 # Prepare work directory
 WORKDIR /workspaces/arista-fabric
