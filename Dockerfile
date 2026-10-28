@@ -13,7 +13,7 @@ RUN groupadd -g 1001 ciuser && \
 COPY pip-requirements.txt .
 
 # Install Python packages
-RUN pip3 install -r pip-requirements.txt --break-system-packages
+RUN pip3 install -r pip-requirements.txt --break-system-packages --force-reinstall
 
 # Prepare work directory
 WORKDIR /workspaces/arista-fabric
@@ -30,7 +30,7 @@ USER ciuser
 COPY requirements.yml .
 
 # Install Ansible collections
-RUN ansible-galaxy collection install -r requirements.yml
+RUN ansible-galaxy collection install -r requirements.yml --force
 
 # Verify installations
 RUN node --version && \

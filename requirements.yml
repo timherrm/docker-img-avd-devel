@@ -1,4 +1,4 @@
 ---
 collections:
-  - name: arista.avd
-    version: 5.2.3
+  - name: https://github.com/MaheshGSLAB/avd.git#/ansible_collections/arista/avd/,issue-7492
+    type: git

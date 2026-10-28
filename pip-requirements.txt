@@ -1,4 +1,4 @@
-pyavd[ansible-collection]==5.2.3
+pyavd[ansible] @ git+https://github.com/MaheshGSLAB/avd.git@issue-7492#subdirectory=python-avd
 ansible-core==2.18.10
 ansible-lint==26.10.1
 passlib==1.7.4
