@@ -5,10 +5,6 @@ RUN apt-get update && \
     apt-get install -y python3 python3-pip git jq vim bash-completion && \
     rm -rf /var/lib/apt/lists/*
 
-# Create non-root user with a stable UID/GID (CI-safe)
-RUN groupadd -g 1001 ciuser && \
-    useradd -m -u 1001 -g 1001 ciuser
-
 # Copy requirements files
 COPY pip-requirements.txt .
 
@@ -17,14 +13,7 @@ RUN pip3 install -r pip-requirements.txt --break-system-packages --force-reinsta
 
 # Prepare work directory
 WORKDIR /workspaces/arista-fabric
-RUN mkdir -p /workspaces/arista-fabric && \
-    chown -R ciuser:ciuser /workspaces
-
-# Enable passwordless root access
-# RUN passwd -d root
-
-# Switch to non-root user
-USER ciuser
+RUN mkdir -p /workspaces/arista-fabric
 
 # Copy requirements files
 COPY requirements.yml .
